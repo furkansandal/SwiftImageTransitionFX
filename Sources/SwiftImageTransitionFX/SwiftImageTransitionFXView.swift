@@ -21,7 +21,7 @@ public class SwiftImageTransitionFXView: UIView {
     public var isInfinityLoop = true
     public var enableReturnBackAfterForward = true
     public var loopWaitTime: CGFloat = 0
-    
+
     public var imageContentMode: UIView.ContentMode = .scaleAspectFit {
         didSet {
             beforeImageView.contentMode = imageContentMode
@@ -128,7 +128,7 @@ private extension SwiftImageTransitionFXView {
 
 extension SwiftImageTransitionFXView: CAAnimationDelegate {
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        guard let animationID = anim.value(forKey: "id") as? String else { return }
+        guard let animationID = anim.value(forKey: "id") as? String, flag else { return }
         switch animationID {
         case "forwardAnimation":
             if enableReturnBackAfterForward {
