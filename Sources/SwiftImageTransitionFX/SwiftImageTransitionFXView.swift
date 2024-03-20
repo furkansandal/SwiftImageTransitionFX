@@ -41,6 +41,7 @@ public class SwiftImageTransitionFXView: UIView {
     public func populate(beforeImage: UIImage?, afterImage: UIImage?) {
         beforeImageView.image = beforeImage
         afterImageView.image = afterImage
+        afterImageView.isHidden = true
     }
 
     public func start() {
@@ -73,6 +74,7 @@ private extension SwiftImageTransitionFXView {
     }
 
     @objc func forwardAnimation() {
+        afterImageView.isHidden = false
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: 0, y: 0, width: 0, height: afterImageView.frame.height)
         afterImageView.layer.mask = maskLayer
