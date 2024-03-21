@@ -47,9 +47,11 @@ public class SwiftImageTransitionFXView: UIView {
     public func start() {
         forwardAnimation()
     }
-    
+
     public func stop() {
         afterImageView.isHidden = true
+        maskLayer.removeAllAnimations()
+        borderLayer.removeAllAnimations()
     }
 }
 
