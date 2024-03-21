@@ -47,6 +47,10 @@ public class SwiftImageTransitionFXView: UIView {
     public func start() {
         forwardAnimation()
     }
+    
+    public func stop() {
+        afterImageView.isHidden = true
+    }
 }
 
 private extension SwiftImageTransitionFXView {
